@@ -1,15 +1,16 @@
-// src/recipes/RecipesContainer.test.js
+// src/games/GamesContainer.test.js
 import React from 'react'
 import chai, { expect } from 'chai'
 import { shallow } from 'enzyme'
 import chaiEnzyme from 'chai-enzyme'
-import { RecipesContainer } from './RecipesContainer'
+import { GamesContainer } from './GamesContainer'
 import Title from '../components/Title'
-import RecipeItem from './RecipeItem'
+import GameItem from './GameItem'
 
 chai.use(chaiEnzyme)
 
-const recipes = [
+// TODO fix properties
+const games = [
   {
     title: 'Spanish Omelette',
     summary: 'A traditional dish from Spanish cuisine called tortilla española or tortilla de patatas. It is an omelette made with eggs and potatoes, sometimes also with onion and/or chives or garlic; fried in oil and often served cold as an appetizer.',
@@ -33,23 +34,23 @@ const recipes = [
   }
 ]
 
-describe('<RecipesContainer />', () => {
-  const container = shallow(<RecipesContainer recipes={ recipes } />)
+describe('<GamesContainer />', () => {
+  const container = shallow(<GamesContainer games={ games } />)
 
-  it('is wrapped in a div with class name "recipes"', () => {
+  it('is wrapped in a div with class name "games"', () => {
     expect(container).to.have.className('wrapper')
-    expect(container).to.have.className('recipes')
+    expect(container).to.have.className('games')
   })
 
   it('contains a Title', () => {
     expect(container).to.have.descendants(Title)
   })
 
-  it('sets the Title to "All Recipes"', () => {
-    expect(container).to.contain(<Title content="All Recipes" />)
+  it('sets the Title to "All Games"', () => {
+    expect(container).to.contain(<Title content="All Games" />)
   })
 
-  it('renders all recipes as a RecipeItem', () => {
-    expect(container).to.have.exactly(recipes.length).descendants(RecipeItem)
+  it('renders all games as a GameItem', () => {
+    expect(container).to.have.exactly(games.length).descendants(GameItem)
   })
 })

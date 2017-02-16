@@ -3,7 +3,7 @@ import wrapper from '../test/wrapper'
 import chai, { expect } from 'chai'
 import chaiEnzyme from 'chai-enzyme'
 import App from './App'
-import RecipesContainer from './recipes/RecipesContainer'
+import GamesContainer from './games/GamesContainer'
 
 chai.use(chaiEnzyme())
 
@@ -15,6 +15,6 @@ describe('<App />', () => {
   })
 
   it('render a Title', () => {
-    expect(app).to.have.descendants(RecipesContainer)
+    expect(app).to.have.descendants(GamesContainer)
   })
 })

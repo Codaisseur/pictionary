@@ -18,7 +18,7 @@ export class GameItem extends PureComponent {
     const { _id, title, summary, vegan, vegetarian, pescatarian, photo } = this.props
 
     return(
-      <article className="recipe">
+      <article className="game">
         <header>
           <div className="cover" style={{ backgroundImage: `url(${photo})` }} />
           <h1>

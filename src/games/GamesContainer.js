@@ -18,8 +18,8 @@ export class GamesContainer extends PureComponent {
     this.props.subscribeToGamesService()
   }
 
-  renderRecipe(recipe, index) {
-    return <GameItem key={ index } { ...recipe } liked={ false } />
+  renderGame(game, index) {
+    return <GameItem key={ index } { ...game } liked={ false } />
   }
 
   render() {
@@ -30,7 +30,7 @@ export class GamesContainer extends PureComponent {
         </header>
 
         <main className="container">
-          { this.props.games.map(this.renderRecipe.bind(this)) }
+          { this.props.games.map(this.renderGame.bind(this)) }
         </main>
       </div>
     )

@@ -21,7 +21,7 @@ ReactDOM.render(
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={GamesContainer} />
-        <Route path="/games/:recipeId" component={GamePage} />
+        <Route path="/games/:gameId" component={GamePage} />
         <Route path="/sign-up" component={SignUp} />
         <Route path="/sign-in" component={SignIn} />
       </Route>

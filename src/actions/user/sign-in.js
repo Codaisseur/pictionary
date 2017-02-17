@@ -1,4 +1,3 @@
-// src/actions/user/sign-in.js
 import API from '../../middleware/api'
 import loadError from '../load/error'
 import loadSuccess from '../load/success'

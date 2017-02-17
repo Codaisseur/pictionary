@@ -7,17 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import FlatButton from 'material-ui/FlatButton'
 import signIn from '../actions/user/sign-in'
 import Title from '../components/Title'
-
-const dialogStyle = {
-  width: '400px',
-  margin: '50px auto',
-  padding: '2rem',
-}
-
-const buttonStyle = {
-  float: 'right',
-  marginLeft: '2rem',
-}
+import { dialogStyle, buttonStyle } from '../styles/app.js'
 
 export class SignIn extends PureComponent {
   submitForm(event) {

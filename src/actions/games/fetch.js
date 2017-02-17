@@ -2,6 +2,7 @@ import API from '../../middleware/api'
 import loadError from '../load/error'
 import loadSuccess from '../load/success'
 import loading from '../loading'
+import { history } from '../../store'
 export const FETCHED_GAMES = 'FETCHED_GAMES'
 
 const api = new API()
@@ -12,6 +13,10 @@ export default () => {
     dispatch(loading(true))
 
     api.authenticate()
+      .catch((error) => {
+        console.error(error)
+        history.push('/sign-in')
+      })
       .then(() => {
         games.find({
           query: {

@@ -11,11 +11,11 @@ export class GamePage extends PureComponent {
   }
 
   render() {
-    const { title } = this.props
+    const { _id } = this.props
 
     return(
       <div className="game page">
-        <Title content={ title || 'Loading...' } />
+        <Title content={ _id || 'Loading...' } />
       </div>
     )
   }

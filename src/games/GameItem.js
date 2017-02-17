@@ -3,30 +3,29 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import './GameItem.sass'
+import TeamItem from '../teams/TeamItem'
 
 export class GameItem extends PureComponent {
-  // TODO correct propTypes
   static propTypes = {
-    _id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    photo: PropTypes.string.isRequired,
-    summary: PropTypes.string.isRequired,
+    teams: PropTypes.array.isRequired,
+  }
+
+  renderTeam(team, index) {
+    return <TeamItem key={ index } { ...team } index={ index } />
   }
 
   render() {
-    // TODO correct propTypes
-    const { _id, title, summary, vegan, vegetarian, pescatarian, photo } = this.props
+    const { _id, teams } = this.props
 
     return(
       <article className="game">
         <header>
-          <div className="cover" style={{ backgroundImage: `url(${photo})` }} />
           <h1>
-            <Link to={`/games/${_id}`}>{ title }</Link>
+            <Link to={`/games/${_id}`}>Game { this.props.index + 1 }</Link>
           </h1>
         </header>
         <main>
-          <p>{ summary }</p>
+          { this.props.teams.map(this.renderTeam.bind(this)) }
         </main>
         <footer>
         </footer>

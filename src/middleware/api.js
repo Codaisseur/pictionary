@@ -22,12 +22,16 @@ class API {
   }
 
   authenticate(user) {
-    const { email, password } = user
-    return this.app.authenticate(
-      Object.assign({}, { type: 'local' }, {
-      email,
-      password,
-    }))
+    if (!user) {
+      return this.app.authenticate()
+    } else {
+      const { email, password } = user
+      return this.app.authenticate(
+        Object.assign({}, { type: 'local' }, {
+          email,
+          password,
+        }))
+    }
   }
 
   signOut() {

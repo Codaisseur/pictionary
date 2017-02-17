@@ -11,23 +11,26 @@ export default () => {
   return (dispatch) => {
     dispatch(loading(true))
 
-    games.find({
-      query: {
-        $limit: 25
-      }
-    })
-    .then((response) => {
-      dispatch(loadSuccess())
-      dispatch({
-        type: FETCHED_GAMES,
-        payload: response.data
+    api.authenticate()
+      .then(() => {
+        games.find({
+          query: {
+            $limit: 25
+          }
+        })
+        .then((response) => {
+          dispatch(loadSuccess())
+          dispatch({
+            type: FETCHED_GAMES,
+            payload: response.data
+          })
+        })
+        .catch((error) => {
+          dispatch(loadError(error))
+        })
+        .then(() => {
+          dispatch(loading(false))
+        })
       })
-    })
-    .catch((error) => {
-      dispatch(loadError(error))
-    })
-    .then(() => {
-      dispatch(loading(false))
-    })
   }
 }

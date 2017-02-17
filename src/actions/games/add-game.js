@@ -15,9 +15,7 @@ export default (user) => {
       .then(() => {
         games.create({
           teams: [
-            {
-              players: [user._id],
-            }
+            { players: [user._id] }, {}
           ],
         })
         .then((response) => {

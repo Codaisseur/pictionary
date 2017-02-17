@@ -17,7 +17,7 @@ export class GamePage extends PureComponent {
   }
 
   renderTeams(team, index) {
-    return <TeamItem key={ index } { ...team } index={ index } />
+    return <TeamItem key={ index } { ...team } index={ index } canJoin={ true } />
   }
 
   render() {
